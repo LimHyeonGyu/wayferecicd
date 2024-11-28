@@ -18,12 +18,6 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
 
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
-
-      - name: Build with Gradle
-        run: ./gradlew clean build
-
       - run: touch ./src/main/resources/application.properties
       - run: echo "${{secrets.APPLICATION_DEV}}" > ./src/main/resources/application.properties
       - uses: actions/upload-artifact@v3
